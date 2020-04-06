@@ -9,7 +9,7 @@ express_server:
 
 falco:
   container_name: falco
-  image: falcosecurity/falco:latest
+  image: falcosecurity/falco:0.17.1
   privileged: true
   volumes:
     - /var/run/docker.sock:/host/var/run/docker.sock
@@ -19,3 +19,5 @@ falco:
     - /lib/modules:/host/lib/modules:ro
     - /usr:/host/usr:ro
   tty: true
+  environment:
+    - "FALCO_VERSION=0.17.1"
